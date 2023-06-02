@@ -1,0 +1,11 @@
+body{
+  margin: 0;
+  height, width: auto;
+  font-family: Tahoma, Times New Roman;
+  background: #353839;
+}
+#title,
+.fade{
+  font-family: Tahoma, Times New Roman;
+  text-align: center;
+}
