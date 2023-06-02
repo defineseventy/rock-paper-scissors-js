@@ -6,7 +6,11 @@ body{
   color: #eae0c8;
 }
 #title,
-.fade{
+.fade,
+#rps{
   font-family: Tahoma, Times New Roman;
   text-align: center;
+}
+#rps{
+  font-size: 15px;
 }
