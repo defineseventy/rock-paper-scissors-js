@@ -20,7 +20,7 @@ function typeWriter(){
 }
 
 /*Set game array here */
-const gameArray = ['Rock', 'Paper', 'Scissorss'];
+const gameArray = ['Rock', 'Paper', 'Scissors'];
 function getComputerChoice(){
   /* Use array and set it to random choice */
   return gameArray[~~(Math.random()*gameArray.length)]
