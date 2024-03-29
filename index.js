@@ -11,8 +11,12 @@ let i = 0;
 let txt = 'Made using Javascript for a TOP project \n Are you brave enough to challenge the Almighty Computer? \n If you dare to take on this challenge....\n The first to reach to a score of 5, be it Human or Computer.... \n They shall gain a fabulous prize!'
 let speed = 60;
 
-typewriterConfig = [txt, true]
-  typewriter();
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("game-text").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
 
 /*Set game array here */
 const gameArray = ['Rock', 'Paper', 'Scissors'];
