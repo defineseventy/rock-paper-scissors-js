@@ -38,7 +38,7 @@ h1 {
   background-image: linear-gradient(#ffcc4c, #f89808);
 }
 
-.rules-container {
+.game-text {
   padding: 10px 0;
   margin: auto;
   border-radius: 15px;
@@ -47,11 +47,11 @@ h1 {
   color: var(--very-dark-blue);
 }
 
-.rules-container ul {
+.game-text ul {
   list-style-type: none;
 }
 
-.rules-container p {
+.game-text p {
   margin: 10px 0;
 }
 
@@ -83,5 +83,6 @@ h1 {
 
 #reset-game {
   display: none;
+  background-color: #f1be32;
   margin: 20px auto;
 }
