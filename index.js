@@ -1,7 +1,7 @@
 function getRandomComputerResult() {
-  const options = ["Rock", "Paper", "Scissors"];
+  const option = ["Rock", "Paper", "Scissors"];
   const randomIndex = Math.floor(Math.random() * options.length);
-  return options[randomIndex];
+  return option[randomIndex];
 }
 
 function playRound(player, computer) {
