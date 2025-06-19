@@ -54,12 +54,12 @@ function showResults(userOption) {
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
-    playerScoreSpanElement.innerText = playerScore;
-    computerScoreSpanElement.innerText = computerScore;
+    playerScoreSpanElement.innerText = "0";
+    computerScoreSpanElement.innerText = "0";
     resetGameBtn.style.display = "none";
     optionsContainer.style.display = "block";
     winnerMsgElement.innerText = "";
-    roundResultMsg.innerText = "";
+    roundResultsMsg.innerText = "";
 };
 
 resetGameBtn.addEventListener("click", resetGame);
