@@ -20,7 +20,7 @@ const game = () => {
     choice.addEventListener('click', function() {
         const choiceNo = Math.floor(Math.random() * 3)
         const computerChoice = computerOptions[choiceNo]
-        
+        score++;
         //check who wins after playing a round
         playRound(this.innerText, computerChoice)
 
@@ -30,7 +30,8 @@ const game = () => {
         }
       }
     )
-    })
+    }
+  )
   }
   //to play a round
   const playRound = (human, computer) => {
