@@ -32,9 +32,9 @@ function playRound(humanChoice) {
   if (humanChoice === computerChoice) {
     resultDisplay.textContent = "It's a tie";
   } else if (
-    (humanChoice == "rock" && computerChoice == "scissors") ||
-    (humanChoice == "paper" && computerChoice == "rock") ||
-    (humanChoice == "scissors" && computerChoice == "paper")
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
   ){
     resultDisplay.textContent = "Human wins ^_^"
     humanScore++
