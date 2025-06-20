@@ -107,7 +107,7 @@ function resetGame() {
     scoreRes.style.display = ""
   }
 
-  const gameConclusion = document.getElementById("game-conclusion");\
+  const gameConclusion = document.getElementById("game-conclusion");
   if (gameConclusion){
     gameConclusion.remove();
   }
