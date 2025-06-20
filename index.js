@@ -1,129 +1,117 @@
-///testing 
-console.log("Hello World")
+//initialize buttons 
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const scissorBtn = document.getElementById('scissors');
+const resultDisplay = document.querySelector("result")
+//initializing scores
+let humanScore = 0;
+let comScore = 0;
+let score = 0;
+const totalScore = 5;
+const scoreDisplay = document.getElementById("scpre");
+const humanScoreDisplay = document.querySelector("player-score");
+const computerScoreDisplay = document.querySelector("computer-score");
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let scores = 0;
+//add Event Listeners
+rockBtn.addEventListener("click", () => {
+  playRound('rock')
+})
+paperBtn.addEventListener("click", () => {
+  playRound('paper')
+})
+scissorBtn.addEventListener("click", () => {
+  playRound('scissors')
+})
 
+//creating a playRound function
+function playRound(humanChoice) {
+  const choice = ["Rock", "Paper", "Scissors"];
+  const computerChoice = choice[Math.floor(Math.random() * choice.length)]
 
-    // Function to 
-    function playGame(){
-        const rockBtn = document.querySelector('.rock');
-        const paperBtn = document.querySelector('.paper');
-        const scissorBtn = document.querySelector('.scissors');
-        const playerOptions = [rockBtn, paperBtn, scissorBtn];
-        const computerOptions = ['rock', 'paper', 'scissors']
+  //compare choice made by human vs computer
+  if (humanChoice === computerChoice) {
+    resultDisplay.textContent = "It's a tie";
+  } else if (
+    (humanChoice == "rock" && computerChoice == "scissors") ||
+    (humanChoice == "paper" && computerChoice == "rock") ||
+    (humanChoice == "scissors" && computerChoice == "paper")
+  ){
+    resultDisplay.textContent = "Human wins ^_^"
+    humanScore++
+  } else {
+    resultDisplay.textContent = "You lose. :("
+    comScore++
+  }
+  //calculate the score
+  if (score < totalScore){
+    scoreDisplay.textContent = `Score: ${score}`;
+    score++;
+  }
+  else {
+    endsGame(); //ends the game
+  }
 
-        // Function to start playing game
-        playerOptions.forEach(option => {
-            option.addEventListener('click', function () {
-
-                scores++;
-
-                const choiceNumber = Math.floor(Math.random() * 3);
-                const computerChoice = computerOptions[choiceNumber];
-
-                // Function to check who wins
-                winner(this.innerText, computerChoice)
-
-                // Calling gameOver function after 10 moves
-                if (scores == 5) {
-                    resetGame(playerOptions, movesLeft);
-                }
-            })
-        })
-
-    }
-
-    // Function to decide winner
-    function winner(player, computer) {
-        const result = document.querySelector('.result');
-        const playerScoreBoard = document.querySelector('.player-score');
-        const computerScoreBoard = document.querySelector('.computer-score');
-        player = player.toLowerCase();
-        computer = computer.toLowerCase();
-        if (player === computer) {
-            result.textContent = 'Tie'
-        }
-        else if (player == 'rock') {
-            if (computer == 'paper') {
-                result.textContent = 'Computer Won';
-                computerScore++;
-                computerScoreBoard.textContent = computerScore;
-
-            } else {
-                result.textContent = 'Player Won'
-                playerScore++;
-                playerScoreBoard.textContent = playerScore;
-            }
-        }
-        else if (player == 'scissors') {
-            if (computer == 'rock') {
-                result.textContent = 'Computer Won';
-                computerScore++;
-                computerScoreBoard.textContent = computerScore;
-            } else {
-                result.textContent = 'Player Won';
-                playerScore++;
-                playerScoreBoard.textContent = playerScore;
-            }
-        }
-        else if (player == 'paper') {
-            if (computer == 'scissors') {
-                result.textContent = 'Computer Won';
-                computerScore++;
-                computerScoreBoard.textContent = computerScore;
-            } else {
-                result.textContent = 'Player Won';
-                playerScore++;
-                playerScoreBoard.textContent = playerScore;
-            }
-        }
-    }
-
-    // Function to run when game is over
-    function resetGame(playerOptions, movesLeft) {
-
-        const chooseMove = document.querySelector('.item');
-        const result = document.querySelector('.result');
-        const reloadBtn = document.querySelector('.reset-game');
-
-        playerOptions.forEach(option => {
-            option.style.display = 'none';
-        })
-
-
-        chooseMove.innerText = 'Game Over!!'
-        movesLeft.style.display = 'none';
-
-        if (playerScore > computerScore) {
-            result.style.fontSize = '2rem';
-            result.innerText = 'You Won The Game'
-            result.style.color = '#308D46';
-        }
-        else if (playerScore < computerScore) {
-            result.style.fontSize = '2rem';
-            result.innerText = 'You Lost The Game';
-            result.style.color = 'red';
-        }
-        else {
-            result.style.fontSize = '2rem';
-            result.innerText = 'Tie';
-            result.style.color = 'grey'
-        }
-        reloadBtn.innerText = 'Restart';
-        reloadBtn.style.display = 'flex'
-        reloadBtn.addEventListener('click', () => {
-            window.location.reload();
-        })
-    }
-
-
-    // Calling playGame function inside game
-    playGame();
-
+  //update the text of the human abd computer scores
+  humanScoreDisplay.textContent = `Player Score: ${humanScore}`;
+  computerScoreDisplay.textContent = `Computer Score: ${comScore}`;
 }
 
-// Calling the game function
-game();
+//reset game
+function endsGame() {
+  const rpsContainer = document.getElementById("rps-game")
+  //hide the choices to clear game area
+  const choice = document.getElementById("options");
+  const scoreRes = document.getElementById("results")
+  if (choice) {
+    choice.style.display = "none"
+  } if (scoreRes) {
+    scoreRes.style.display = "none"
+  }
+
+const gameConclusion = document.createElement("div");
+gameConclusion.setAttribute('id', 'game-conclusion')
+  let finalMsg = "";
+
+  if (humanScore > comScore){
+    finalMsg = "Congrats, the human won ^_^"
+  } else if (humanScore < comScore) {
+    finalMsg = "Try better next timw, the AI won"
+  } else {
+    finalMsg = "This ends in a draw!"
+  }
+  gameConclusion.innerHTML = `
+  <h2>Game over</h2>
+  <p>${finalMsg}</p>
+  <p>Final Score - You: ${humanScore} | Computer: ${comScore}</p>
+  <button id ="reset-btn">Reset Game?</button>`;
+
+  //add gameConclusion to rpsConatainer
+  rpsContainer.appendChild(gameConclusion);
+  //enable the reset button
+  document.getElementById("reset-btn").addEventListener("click", resetGame);
+}
+
+//create a reset game function
+function resetGame() {
+  humanScore = 0;
+  comScore = 0;
+  humanScoreDisplay.textContent = "Player Score: 0";
+  computerScoreDisplay.textContent = `Computer Score: ${comScore}`;
+  scoreDisplay.textContent = "Score: 0"
+
+  const choice = document.getElementById("options");
+  const scoreRes = document.getElementById("results")
+  if (choice) {
+    choice.style.display = ""
+  } if (scoreRes) {
+    scoreRes.style.display = ""
+  }
+
+  const gameConclusion = document.getElementById("game-conclusion");\
+  if (gameConclusion){
+    gameConclusion.remove();
+  }
+
+  document.getElementById("options").style.display = "";
+  resultDisplay.textContent = "Choose your item!"
+}

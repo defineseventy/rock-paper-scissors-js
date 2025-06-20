@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1 id="title">Human vs Computer</h1>
-    <main>
+    <main id ="rps-game">
+      <h1 id="title">Human vs Computer</h1>
       <details class="game-text">
         <summary>Rules of Human vs Computer</summary>
         <p>You will be playing against the computer</p>
@@ -25,9 +25,10 @@
         <p>If the player and computer both choose the same option (e.g. Rock and Rock etc.), 
           then no one will get the point.</p>
       </details>
-      <div class="score-container">
-        <strong>Player score: <span class="player-score">0</span></strong>
-        <strong>Computer score: <span class="computer-score">0</span></strong>
+      <div id="score-container">
+        <div class="player-score">Player Score: 0</div>
+        <div class="computer-score">Computer Score: 0</div>
+        <div id="score">Score: 0</div>
       </div>
       <section class="options">
         <h2 class="item">Choose your item</h2>
