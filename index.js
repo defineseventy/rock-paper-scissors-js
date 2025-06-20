@@ -1,14 +1,14 @@
 ///testing 
 console.log("Hello World")
 
-const game = () => {
+function game() {
     let playerScore = 0;
     let computerScore = 0;
     let scores = 0;
 
 
     // Function to 
-    const playGame = () => {
+    function playGame(){
         const rockBtn = document.querySelector('.rock');
         const paperBtn = document.querySelector('.paper');
         const scissorBtn = document.querySelector('.scissors');
@@ -19,7 +19,7 @@ const game = () => {
         playerOptions.forEach(option => {
             option.addEventListener('click', function () {
 
-                   moves++;
+                scores++;
 
                 const choiceNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[choiceNumber];
@@ -37,7 +37,7 @@ const game = () => {
     }
 
     // Function to decide winner
-    const winner = (player, computer) => {
+    function winner(player, computer) {
         const result = document.querySelector('.result');
         const playerScoreBoard = document.querySelector('.player-score');
         const computerScoreBoard = document.querySelector('.computer-score');
@@ -83,7 +83,7 @@ const game = () => {
     }
 
     // Function to run when game is over
-    const resetGame = (playerOptions, movesLeft) => {
+    function resetGame(playerOptions, movesLeft) {
 
         const chooseMove = document.querySelector('.item');
         const result = document.querySelector('.result');
