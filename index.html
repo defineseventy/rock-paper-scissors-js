@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, intital-scale=1.0">
-    <title>Human vs Computer (AI)</title>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    <main id ="rps-game">
-      <h1 id="title">Human vs Computer</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissors Game</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="rps-game">
+      <h1>Human vs AI</h1>
       <details class="game-text">
         <summary>Rules of Human vs Computer</summary>
         <p>You will be playing against the computer</p>
@@ -25,30 +25,28 @@
         <p>If the player and computer both choose the same option (e.g. Rock and Rock etc.), 
           then no one will get the point.</p>
       </details>
-      <div id="score-container">
-        <div class="player-score">Player Score: 0</div>
-        <div class="computer-score">Computer Score: 0</div>
-        <div id="score">Score: 0</div>
+      <div id="options">
+          <button id="rock">Rock</button>
+          <button id="paper">Paper</button>
+          <button id="scissors">Scissors</button>
       </div>
-      <section class="options">
-        <h2 class="item">Choose your item</h2>
-        <div class="buttons">
-          <button id="rock" class="btn">Rock</button>
-          <button id="paper" class="btn">Paper</button>
-          <button id="scissors" class="btn">Scissors</button>
-        </div>
-      </section>
-      <section class="results-container">
-        <p class="result"></p>
-        <button class="btn" id="reset-game"></button>
-      </section>
-    </main>
-    <!--- footer --->
+      <div id="result">
+          <!-- Result will be displayed here -->
+      </div>
+      <div id="game-info">
+          <div id="score">Score: 0 of 5</div>
+          <div id="scoreboard">
+              <div id="player-score">Player Score: 0</div>
+              <div id="computer-score">Computer Score: 0</div>
+          </div>
+      </div>
+  </div>
+  <!--- footer --->
     <footer>
       <p>Created by @<a href = "https://defineseventy.github.io/landing-page/" target = "_blank">Jacqueline Lim</a>
         <br>
         Created for <a href = "https://www.theodinproject.com/">The Odin Project</a></p>
     </footer>
-    <script src="index.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>

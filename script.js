@@ -61,11 +61,14 @@ function endsGame() {
   const rpsContainer = document.getElementById("rps-game")
   //hide the choices to clear game area
   const choice = document.getElementById("options");
-  const scoreRes = document.getElementById("results")
+  const scoreRes = document.getElementById("results");
+  const gameInfo = document.getElementById('game-info');
   if (choice) {
     choice.style.display = "none"
   } if (scoreRes) {
     scoreRes.style.display = "none"
+  } if (gameInfo) {
+    gameInfo.style.display = 'none'
   }
 
 const gameConclusion = document.createElement("div");
@@ -101,10 +104,13 @@ function resetGame() {
 
   const choice = document.getElementById("options");
   const scoreRes = document.getElementById("results")
+  const gameInfo = document.getElementById('game-info');
   if (choice) {
     choice.style.display = ""
   } if (scoreRes) {
     scoreRes.style.display = ""
+  } if (gameInfo) {
+    gameInfo.style.display = ""
   }
 
   const gameConclusion = document.getElementById("game-conclusion");
