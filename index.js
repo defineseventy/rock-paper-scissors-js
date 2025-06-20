@@ -39,42 +39,42 @@ const game = () => {
     const comScoreBoard = document.querySelector(".computer-score");
   
     //so that both are case insensitive
-    player = player.toLowerCase();
+    player = human.toLowerCase();
     computer = computer.toLowerCase();
 
-    if (player === computer){
+    if (human === computer){
       result.textContent = "t's a tie :|";
     }
-  else if (player == "rock"){
+  else if (human == "rock"){
     if (computer == "scissors"){
-      result.textContent = `${player} beats ${computer}`
+      result.textContent = `${human} beats ${computer}`
       humanScore++
       humanScoreBoard.textContent = humanScore;
     }
     else {
-      result.textContent = `${computer} beats ${player}`;
+      result.textContent = `${computer} beats ${human}`;
       computerScore++;
       comScoreBoard.textContent = computerScore;
     }
-  } else if (player == "scissors") {
+  } else if (huamn == "scissors") {
     if (computer == "paper"){
-      result.textContent = `${player} beats ${computer}`
+      result.textContent = `${human} beats ${computer}`
       humanScore++
       humanScoreBoard.textContent = humanScore;
     }
     else {
-      result.textContent = `${computer} beats ${player}`;
+      result.textContent = `${computer} beats ${human}`;
       computerScore++;
       comScoreBoard.textContent = computerScore;
     }
-  } else if (player == "paper"){
+  } else if (huamn == "paper"){
     if (computer == "rock"){
-      result.textContent = `${player} beats ${computer}`
+      result.textContent = `${human} beats ${computer}`
       humanScore++
       humanScoreBoard.textContent = humanScore;
     }
     else {
-      result.textContent = `${computer} beats ${player}`;
+      result.textContent = `${computer} beats ${human}`;
       computerScore++;
       comScoreBoard.textContent = computerScore;
     }
